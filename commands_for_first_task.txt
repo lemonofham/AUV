@@ -1,0 +1,11 @@
+To find file with name README : 
+find . -name "README"
+Completing Task Given In README : 
+To find file locations with ASCII text "AUV-IITB" in them :
+find . -type f -exec grep -l "AUV-IITB" {} ";"
+To find line number and print line of file with ASCII text "AUV-IITB" in them :
+find . -type f -exec grep -n -H "AUV-IITB" {} ";"
+To properly format the output (locaton on one line and line number:line content on next) : 
+find . -type f -exec grep -n -H "AUV-IITB" {} ";" | sed -E 's/:/\n/1'
+To exclude README file from search results : 
+find . -type f -exec grep -r --exclude="README" -n -H "AUV-IITB" {} ";" | sed -E 's/:/\n/1'
